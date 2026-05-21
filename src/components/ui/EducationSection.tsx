@@ -135,23 +135,23 @@ export function EducationSection() {
       <div className="mx-auto w-full max-w-7xl px-6 relative z-10">
         
         {/* Cinematic Header */}
-        <div className="text-center mb-24 md:mb-40">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.25em] text-[#06B6D4] mb-8"
-          >
-            <span className="inline-block h-px w-8 bg-gradient-to-r from-transparent to-[#06B6D4]" />
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            show: { opacity: 1, y: 0, transition: { staggerChildren: 0.2 } },
+          }}
+          className="mb-14 md:mb-20"
+        >
+          <motion.div variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }} className="flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-[#06B6D4]">
+            <span className="inline-block h-px w-12 bg-gradient-to-r from-[#06B6D4] to-transparent" />
             04 — Education
-            <span className="inline-block h-px w-8 bg-gradient-to-l from-transparent to-[#06B6D4]" />
           </motion.div>
-          <motion.h2 
-            initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
-            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tighter leading-[1.1] drop-shadow-2xl"
+          <motion.h2
+            variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
+            className="font-display mt-4 text-4xl leading-[1.1] text-white md:text-6xl text-balance drop-shadow-md"
           >
             Years of Education.<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#06B6D4] via-[#4C1D95] to-[#10B981]">
@@ -159,15 +159,12 @@ export function EducationSection() {
             </span>
           </motion.h2>
           <motion.p 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.4 }}
-            className="mt-8 text-lg md:text-2xl text-[#A1A1AA] max-w-3xl mx-auto font-medium"
+            variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
+            className="mt-6 text-lg md:text-2xl text-[#A1A1AA] max-w-3xl font-medium"
           >
             Every institution shaped discipline, leadership, and purpose.
           </motion.p>
-        </div>
+        </motion.div>
 
         {/* Timeline & Cards */}
         <div ref={ref} className="relative w-full">

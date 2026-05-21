@@ -117,13 +117,24 @@ function About() {
   return (
     <section id="about" ref={containerRef} className="relative py-16 md:py-24 bg-[#050505] min-h-[120vh]">
       <div className="sticky top-[25vh] mx-auto w-full max-w-5xl px-6">
-        <div className="flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-[#06B6D4] mb-8">
-          <span className="inline-block h-px w-12 bg-gradient-to-r from-[#06B6D4] to-transparent" />
-          01 — About
-        </div>
-        <h2 className="font-display mb-12 text-3xl leading-[1.1] text-white md:text-5xl drop-shadow-md">
-          A motivated leader shaping strategy, teams, and outcomes.
-        </h2>
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={stagger}
+          className="mb-14 md:mb-20"
+        >
+          <motion.div variants={fadeUp} className="flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-[#06B6D4]">
+            <span className="inline-block h-px w-12 bg-gradient-to-r from-[#06B6D4] to-transparent" />
+            01 — About
+          </motion.div>
+          <motion.h2
+            variants={fadeUp}
+            className="font-display mt-4 text-4xl leading-[1.1] text-white md:text-6xl text-balance drop-shadow-md"
+          >
+            A motivated leader shaping strategy, teams, and outcomes.
+          </motion.h2>
+        </motion.div>
         
         <div className="font-display text-lg md:text-2xl leading-relaxed md:leading-[1.8] text-white/90">
           <p className="mb-8 flex flex-wrap gap-y-2">
@@ -202,15 +213,27 @@ function Experience() {
   return (
     <section id="experience" className="relative mx-auto max-w-6xl px-6 py-16 md:py-24">
       <div className="flex flex-col gap-12 md:gap-16">
-        <div>
-          <div className="flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-[#06B6D4]">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            show: { opacity: 1, y: 0, transition: { staggerChildren: 0.2 } },
+          }}
+          className="mb-14 md:mb-20"
+        >
+          <motion.div variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }} className="flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-[#06B6D4]">
             <span className="inline-block h-px w-12 bg-gradient-to-r from-[#06B6D4] to-transparent" />
             02 — Experience
-          </div>
-          <h2 className="font-display mt-4 text-4xl leading-[1.1] text-white md:text-6xl drop-shadow-md">
+          </motion.div>
+          <motion.h2
+            variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
+            className="font-display mt-4 text-4xl leading-[1.1] text-white md:text-6xl text-balance drop-shadow-md"
+          >
             Leadership across IEEE, NSS, and academic initiatives.
-          </h2>
-        </div>
+          </motion.h2>
+        </motion.div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {experiences.map((e, i) => (

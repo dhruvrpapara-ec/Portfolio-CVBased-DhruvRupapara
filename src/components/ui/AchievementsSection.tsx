@@ -103,35 +103,33 @@ export function AchievementsSection() {
       <div className="mx-auto w-full max-w-7xl px-6 relative z-10">
         
         {/* Cinematic Header */}
-        <div className="mb-24">
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.25em] text-[#A78BFA] mb-6"
-          >
-            <span className="inline-block h-px w-8 bg-gradient-to-r from-[#A78BFA] to-transparent" />
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            show: { opacity: 1, y: 0, transition: { staggerChildren: 0.2 } },
+          }}
+          className="mb-14 md:mb-20"
+        >
+          <motion.div variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }} className="flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-[#06B6D4]">
+            <span className="inline-block h-px w-12 bg-gradient-to-r from-[#06B6D4] to-transparent" />
             06 — Beyond the Resume
           </motion.div>
-          <motion.h2 
-            initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
-            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-display text-5xl md:text-7xl font-bold text-white tracking-tighter leading-[1.1]"
+          <motion.h2
+            variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
+            className="font-display mt-4 text-4xl leading-[1.1] text-white md:text-6xl text-balance drop-shadow-md"
           >
             Achievements, <br className="hidden md:block" />Leadership & Impact.
           </motion.h2>
           <motion.p 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.3 }}
+            variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
             className="mt-6 text-lg md:text-xl text-[#A1A1AA] max-w-2xl font-medium"
           >
             Beyond academics — a journey of leadership, service, innovation, and massive community impact.
           </motion.p>
-        </div>
+        </motion.div>
 
         {/* Impact Statistics Counters */}
         <motion.div 
