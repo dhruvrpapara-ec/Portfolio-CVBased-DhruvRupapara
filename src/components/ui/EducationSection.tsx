@@ -180,7 +180,7 @@ export function EducationSection() {
             className="absolute left-[28px] md:left-1/2 top-0 w-[2px] bg-gradient-to-b from-transparent via-[#06B6D4] to-[#4C1D95] -translate-x-1/2 shadow-[0_0_20px_rgba(6,182,212,0.8)] z-10"
           />
 
-          <div className="space-y-16 md:space-y-32 py-10">
+          <div className="space-y-4 md:space-y-6 py-10">
             {education.map((e, i) => (
               <EducationCard key={i} e={e} i={i} left={i % 2 === 0} />
             ))}

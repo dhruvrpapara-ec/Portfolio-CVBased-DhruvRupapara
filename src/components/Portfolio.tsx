@@ -341,10 +341,37 @@ function Contact() {
           <a
             href="https://linkedin.com/in/dhruv-rupapara"
             target="_blank" rel="noreferrer"
-            className="group inline-flex items-center gap-3 rounded-full border border-[#06B6D4] px-8 py-4 font-semibold text-[#06B6D4] transition-all hover:bg-[#06B6D4]/10 hover:shadow-[0_0_20px_rgba(6,182,212,0.3)]"
+            className="group inline-flex items-center gap-3 rounded-full border border-[#06B6D4] px-6 py-4 font-semibold text-[#06B6D4] transition-all hover:bg-[#06B6D4]/10 hover:shadow-[0_0_20px_rgba(6,182,212,0.3)]"
           >
             <Linkedin className="h-5 w-5" />
             LinkedIn
+            <ArrowUpRight className="h-5 w-5 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
+          </a>
+          <a
+            href="https://www.instagram.com/dhrv.20_"
+            target="_blank" rel="noreferrer"
+            className="group inline-flex items-center gap-3 rounded-full border border-[#E1306C] px-6 py-4 font-semibold text-[#E1306C] transition-all hover:bg-[#E1306C]/10 hover:shadow-[0_0_20px_rgba(225,48,108,0.3)]"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            Instagram
+            <ArrowUpRight className="h-5 w-5 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
+          </a>
+          <a
+            href="https://www.snapchat.com/add/xlx_dhrvzzbliss?share_id=dxKho6mEyFQ&locale=en-US"
+            target="_blank" rel="noreferrer"
+            className="group inline-flex items-center gap-3 rounded-full border border-[#FFFC00] px-6 py-4 font-semibold text-[#FFFC00] transition-all hover:bg-[#FFFC00]/10 hover:shadow-[0_0_20px_rgba(255,252,0,0.3)]"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 10h.01"/><path d="M15 10h.01"/><path d="M12 2a8 8 0 0 0-8 8v12l3-3 2.5 2.5L12 19l2.5 2.5L17 19l3 3V10a8 8 0 0 0-8-8z"/></svg>
+            Snapchat
+            <ArrowUpRight className="h-5 w-5 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
+          </a>
+          <a
+            href="https://www.facebook.com/rupapara.dhruv.50?mibextid=ZbWKwL"
+            target="_blank" rel="noreferrer"
+            className="group inline-flex items-center gap-3 rounded-full border border-[#1877F2] px-6 py-4 font-semibold text-[#1877F2] transition-all hover:bg-[#1877F2]/10 hover:shadow-[0_0_20px_rgba(24,119,242,0.3)]"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            Facebook
             <ArrowUpRight className="h-5 w-5 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
           </a>
         </div>

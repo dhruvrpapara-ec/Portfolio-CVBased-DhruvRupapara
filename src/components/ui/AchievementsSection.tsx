@@ -146,7 +146,7 @@ export function AchievementsSection() {
             <div className="text-xs md:text-sm font-semibold uppercase tracking-wider text-[#A78BFA]">Volunteers Led</div>
           </div>
           <div className="p-6 md:p-8 rounded-3xl border border-[#ffffff10] bg-gradient-to-br from-[#111] to-[#0A0A0A] text-center shadow-2xl">
-            <div className="font-display text-4xl md:text-5xl font-bold text-white mb-2"><Counter to={10} />+</div>
+            <div className="font-display text-4xl md:text-5xl font-bold text-white mb-2"><Counter to={50} />+</div>
             <div className="text-xs md:text-sm font-semibold uppercase tracking-wider text-[#06B6D4]">Events Managed</div>
           </div>
           <div className="p-6 md:p-8 rounded-3xl border border-[#ffffff10] bg-gradient-to-br from-[#111] to-[#0A0A0A] text-center shadow-2xl">
