@@ -199,17 +199,10 @@ const experiences = [
 ];
 
 function Experience() {
-  const targetRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-  });
-
-  const x = useTransform(scrollYProgress, [0, 1], ["1%", "-65%"]);
-
   return (
-    <section id="experience" ref={targetRef} className="relative h-[200vh] bg-[#050505]">
-      <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
-        <div className="mx-auto w-full max-w-6xl px-6 mb-12">
+    <section id="experience" className="relative mx-auto max-w-6xl px-6 py-16 md:py-24">
+      <div className="flex flex-col gap-12 md:gap-16">
+        <div>
           <div className="flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-[#06B6D4]">
             <span className="inline-block h-px w-12 bg-gradient-to-r from-[#06B6D4] to-transparent" />
             02 — Experience
@@ -219,11 +212,15 @@ function Experience() {
           </h2>
         </div>
         
-        <motion.div style={{ x }} className="flex gap-8 px-6 md:px-20 pb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {experiences.map((e, i) => (
-            <div
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: i * 0.1, duration: 0.5 }}
               key={i}
-              className="relative w-[85vw] max-w-md shrink-0 flex flex-col group rounded-3xl border border-[#1F2937] bg-[#09090b]/80 backdrop-blur-sm p-8 shadow-[0_20px_40px_rgba(0,0,0,0.5)] transition-all hover:border-[#06B6D4] hover:shadow-[0_20px_40px_rgba(6,182,212,0.15)]"
+              className="relative flex flex-col group rounded-3xl border border-[#1F2937] bg-[#09090b]/80 backdrop-blur-sm p-8 shadow-[0_20px_40px_rgba(0,0,0,0.5)] transition-all hover:border-[#06B6D4] hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(6,182,212,0.15)]"
             >
               <div className="flex items-center gap-3 mb-6">
                 <span className="font-display text-2xl text-[#06B6D4] opacity-40">0{i + 1}</span>
@@ -243,9 +240,9 @@ function Experience() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
