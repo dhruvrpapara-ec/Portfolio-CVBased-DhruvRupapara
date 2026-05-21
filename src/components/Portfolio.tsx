@@ -38,7 +38,7 @@ function Section({
   className?: string;
 }) {
   return (
-    <section id={id} className={`relative mx-auto max-w-6xl px-6 py-24 md:py-32 ${className}`}>
+    <section id={id} className={`relative mx-auto max-w-6xl px-6 py-16 md:py-24 ${className}`}>
       <motion.div
         initial="hidden"
         whileInView="show"
@@ -115,7 +115,7 @@ function About() {
   };
 
   return (
-    <section id="about" ref={containerRef} className="relative py-24 md:py-32 bg-[#050505] min-h-[200vh]">
+    <section id="about" ref={containerRef} className="relative py-16 md:py-24 bg-[#050505] min-h-[120vh]">
       <div className="sticky top-[25vh] mx-auto w-full max-w-5xl px-6">
         <div className="flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-[#06B6D4] mb-8">
           <span className="inline-block h-px w-12 bg-gradient-to-r from-[#06B6D4] to-transparent" />
@@ -207,7 +207,7 @@ function Experience() {
   const x = useTransform(scrollYProgress, [0, 1], ["1%", "-65%"]);
 
   return (
-    <section id="experience" ref={targetRef} className="relative h-[300vh] bg-[#050505]">
+    <section id="experience" ref={targetRef} className="relative h-[200vh] bg-[#050505]">
       <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
         <div className="mx-auto w-full max-w-6xl px-6 mb-12">
           <div className="flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-[#06B6D4]">

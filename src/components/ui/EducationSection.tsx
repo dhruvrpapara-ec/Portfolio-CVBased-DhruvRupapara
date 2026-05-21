@@ -127,7 +127,7 @@ export function EducationSection() {
   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <section id="education" className="relative w-full bg-[#050505] py-32 md:py-48 overflow-hidden font-sans">
+    <section id="education" className="relative w-full bg-[#050505] py-16 md:py-24 overflow-hidden font-sans">
       {/* Ambient Floating Gradients */}
       <div className="absolute top-1/4 left-0 w-[50vw] h-[50vw] rounded-full bg-[radial-gradient(circle,rgba(6,182,212,0.05)_0%,rgba(0,0,0,0)_70%)] blur-[100px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-0 w-[60vw] h-[60vw] rounded-full bg-[radial-gradient(circle,rgba(76,29,149,0.05)_0%,rgba(0,0,0,0)_70%)] blur-[120px] pointer-events-none" />

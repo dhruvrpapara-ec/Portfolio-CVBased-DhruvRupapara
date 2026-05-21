@@ -95,7 +95,7 @@ function MagneticHoverCard({ children, className = "" }: { children: React.React
 
 export function AchievementsSection() {
   return (
-    <section id="achievements" className="relative w-full bg-[#050505] py-32 md:py-48 overflow-hidden font-sans">
+    <section id="achievements" className="relative w-full bg-[#050505] py-16 md:py-24 overflow-hidden font-sans">
       {/* Ambient Backgrounds */}
       <div className="absolute top-0 right-0 w-[50vw] h-[50vw] rounded-full bg-[radial-gradient(circle,rgba(76,29,149,0.08)_0%,rgba(0,0,0,0)_70%)] blur-[100px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[60vw] h-[60vw] rounded-full bg-[radial-gradient(circle,rgba(16,185,129,0.05)_0%,rgba(0,0,0,0)_70%)] blur-[120px] pointer-events-none" />
