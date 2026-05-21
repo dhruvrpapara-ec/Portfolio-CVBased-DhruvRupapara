@@ -3,6 +3,11 @@
 @source "../src";
 @import "tw-animate-css";
 
+body {
+  background-color: #050505;
+  color: #E5E7EB;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {

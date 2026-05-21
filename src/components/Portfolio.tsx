@@ -400,10 +400,18 @@ export default function Portfolio() {
     };
   }, [introComplete]);
 
+  if (!introComplete) {
+    return <IntroSequence onComplete={() => setIntroComplete(true)} />;
+  }
+
   return (
-    <>
-      {!introComplete && <IntroSequence onComplete={() => setIntroComplete(true)} />}
-      <main id="top" className="relative w-full overflow-x-hidden bg-[#050505] text-[#E5E7EB]">
+    <motion.main 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1.5, ease: "easeOut" }}
+      id="top" 
+      className="relative w-full overflow-x-hidden bg-[#050505] text-[#E5E7EB]"
+    >
       <Navbar />
       <HeroSection />
       <ImageMarquee />
@@ -414,7 +422,6 @@ export default function Portfolio() {
       <Skills />
       <AchievementsSection />
       <Contact />
-    </main>
-    </>
+    </motion.main>
   );
 }
