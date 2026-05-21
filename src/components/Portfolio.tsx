@@ -1,9 +1,10 @@
 import { motion, useScroll, useTransform, type Variants } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { ArrowUpRight, Mail, Phone } from "lucide-react";
 import { HeroSection } from "./HeroSection";
 import { Navbar } from "./ui/Navbar";
 import { ImageMarquee } from "./ui/ImageMarquee";
+import { IntroSequence } from "./ui/IntroSequence";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -386,8 +387,23 @@ function Contact() {
 }
 
 export default function Portfolio() {
+  const [introComplete, setIntroComplete] = useState(false);
+
+  useEffect(() => {
+    if (!introComplete) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [introComplete]);
+
   return (
-    <main id="top" className="relative bg-[#050505] text-[#E5E7EB]">
+    <>
+      {!introComplete && <IntroSequence onComplete={() => setIntroComplete(true)} />}
+      <main id="top" className="relative w-full overflow-x-hidden bg-[#050505] text-[#E5E7EB]">
       <Navbar />
       <HeroSection />
       <ImageMarquee />
@@ -399,5 +415,6 @@ export default function Portfolio() {
       <AchievementsSection />
       <Contact />
     </main>
+    </>
   );
 }

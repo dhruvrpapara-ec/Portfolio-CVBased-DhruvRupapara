@@ -78,13 +78,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: "Dhruv Rupapara — Portfolio" },
       { property: "og:description", content: "Leadership, engineering, and impact — the work of Dhruv Rupapara." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
+      { property: "og:image", content: "/hero-images/IMGS/DR-Logo.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "/hero-images/IMGS/DR-Logo.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" },
+      { rel: "icon", href: "/hero-images/IMGS/DR-Logo.png" },
+      { rel: "apple-touch-icon", href: "/hero-images/IMGS/DR-Logo.png" },
     ],
 
   }),
