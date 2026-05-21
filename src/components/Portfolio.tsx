@@ -1,0 +1,376 @@
+import { motion, useScroll, useTransform, type Variants } from "framer-motion";
+import { useRef } from "react";
+import { ArrowUpRight, Mail, Phone } from "lucide-react";
+import { HeroSection } from "./HeroSection";
+import { Navbar } from "./ui/Navbar";
+import { ImageMarquee } from "./ui/ImageMarquee";
+
+const EASE = [0.22, 1, 0.36, 1] as const;
+
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: EASE } },
+};
+
+const stagger: Variants = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
+};
+
+const Linkedin = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+    <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.13 1.45-2.13 2.94v5.66H9.37V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.26 2.37 4.26 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z" />
+  </svg>
+);
+
+function Section({
+  id,
+  label,
+  title,
+  children,
+  className = "",
+}: {
+  id: string;
+  label: string;
+  title: string;
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <section id={id} className={`relative mx-auto max-w-6xl px-6 py-24 md:py-32 ${className}`}>
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={stagger}
+        className="mb-14 md:mb-20"
+      >
+        <motion.div variants={fadeUp} className="flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-[#06B6D4]">
+          <span className="inline-block h-px w-12 bg-gradient-to-r from-[#06B6D4] to-transparent" />
+          {label}
+        </motion.div>
+        <motion.h2
+          variants={fadeUp}
+          className="font-display mt-4 text-4xl leading-[1.1] text-white md:text-6xl text-balance drop-shadow-md"
+        >
+          {title}
+        </motion.h2>
+      </motion.div>
+      {children}
+    </section>
+  );
+}
+
+function About() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  // Adjusted offset: starts animating when container top hits middle of screen, ends when bottom hits bottom of screen.
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start 60%", "end 90%"]
+  });
+
+  const text1 = "I am Dhruv Rupapara, a driven and visionary B.Tech undergraduate with a passion for leadership, management, and creating meaningful impact. Known for leading initiatives with confidence and discipline, I thrive in environments that challenge me to organize, inspire, and grow.";
+  const text2 = "Through experiences in IEEE, NSS, and large-scale event management, I have developed strong skills in communication, teamwork, strategic planning, and people management. I believe true success is not only about personal achievements, but about inspiring others, creating opportunities, and building a legacy that makes people proud.";
+
+  const words1 = text1.split(" ");
+  const words2 = text2.split(" ");
+  const totalWords = words1.length + words2.length;
+
+  const getPillColor = (word: string) => {
+    const cleanWord = word.replace(/[.,]/g, "").toLowerCase();
+    if (["driven", "visionary", "leadership", "management", "impact"].includes(cleanWord)) return "bg-[#06B6D4]/20 border-[#06B6D4]/50 text-[#06B6D4]";
+    if (["confidence", "discipline", "organize", "inspire", "grow"].includes(cleanWord)) return "bg-[#4C1D95]/30 border-[#4C1D95]/50 text-[#A78BFA]";
+    if (["communication", "teamwork", "strategic", "planning", "people"].includes(cleanWord)) return "bg-[#E11D48]/20 border-[#E11D48]/50 text-[#FB7185]";
+    if (["success", "legacy", "opportunities", "proud"].includes(cleanWord)) return "bg-[#10B981]/20 border-[#10B981]/50 text-[#34D399]";
+    return null;
+  };
+
+  const renderWord = (word: string, index: number) => {
+    // Map the index accurately across the scroll range
+    const start = index / totalWords;
+    const end = start + (1 / totalWords);
+    
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const opacity = useTransform(scrollYProgress, [start, end], [0.15, 1]);
+    const pillClass = getPillColor(word);
+
+    if (pillClass) {
+      return (
+        <motion.span 
+          key={index} 
+          style={{ opacity }} 
+          className={`inline-block mx-[2px] md:mx-1 px-3 py-0.5 rounded-full border ${pillClass} shadow-lg backdrop-blur-sm`}
+        >
+          {word}
+        </motion.span>
+      );
+    }
+
+    return (
+      <motion.span key={index} style={{ opacity }} className="inline-block mx-[2px] md:mx-1">
+        {word}
+      </motion.span>
+    );
+  };
+
+  return (
+    <section id="about" ref={containerRef} className="relative py-24 md:py-32 bg-[#050505] min-h-[200vh]">
+      <div className="sticky top-[25vh] mx-auto w-full max-w-5xl px-6">
+        <div className="flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-[#06B6D4] mb-8">
+          <span className="inline-block h-px w-12 bg-gradient-to-r from-[#06B6D4] to-transparent" />
+          01 — About
+        </div>
+        <h2 className="font-display mb-12 text-3xl leading-[1.1] text-white md:text-5xl drop-shadow-md">
+          A motivated leader shaping strategy, teams, and outcomes.
+        </h2>
+        
+        <div className="font-display text-lg md:text-2xl leading-relaxed md:leading-[1.8] text-white/90">
+          <p className="mb-8 flex flex-wrap gap-y-2">
+            {words1.map((w, i) => renderWord(w, i))}
+          </p>
+          <p className="flex flex-wrap gap-y-2">
+            {words2.map((w, i) => renderWord(w, i + words1.length))}
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const experiences = [
+  {
+    period: "Aug 2024 – Sept 2025",
+    role: "Chairperson – NSS Task Force (Student Executive Committee)",
+    org: "CHARUSAT",
+    points: [
+      "Led the establishment of the NSS Task Force by structuring committees and execution frameworks.",
+      "Directed 15+ large-scale initiatives involving over 500 volunteers across campus.",
+      "Improved operational efficiency through strategic planning and cross-functional coordination.",
+    ],
+  },
+  {
+    period: "May 2025 – Present",
+    role: "Founding Chairperson – IEEE CASS Student Branch Chapter",
+    org: "CHARUSAT",
+    points: [
+      "Established and expanded the technical chapter from inception to 50+ active members.",
+      "Organized 10+ technical workshops and events, significantly increasing student participation and engagement.",
+      "Developed governance, operational structure, and technical outreach initiatives.",
+    ],
+  },
+  {
+    period: "Dec 2025 – Jun 2026",
+    role: "Instructor & Teaching Assistant – CUUV101",
+    org: "CHARUSAT",
+    points: [
+      "Conducted academic sessions for 450+ first-year engineering students.",
+      "Designed structured learning modules and interactive activities to enhance engagement and leadership awareness.",
+      "Assisted in curriculum delivery and academic coordination.",
+    ],
+  },
+  {
+    period: "Present",
+    role: "Portal Administrator – NSS Connect",
+    org: "CHARUSAT",
+    points: [
+      "Developed and managed a centralized digital portal for volunteer management and reporting.",
+      "Streamlined workflows including approvals, attendance tracking, reporting, and operational monitoring.",
+    ],
+  },
+  {
+    period: "2024 – Present",
+    role: "Content & Social Media Lead – EC Department, CSPIT",
+    org: "CHARUSAT",
+    points: [
+      "Designed digital creatives including posters, banners, and invitation materials for departmental activities.",
+      "Managed Instagram and LinkedIn platforms to improve branding consistency and audience engagement.",
+    ],
+  },
+  {
+    period: "2023 – 2025",
+    role: "Department Student Coordinator – NSS",
+    org: "CSPIT EC Department",
+    points: [
+      "Coordinated communication between students and faculty members for smooth departmental operations.",
+      "Assisted in planning and execution of academic and extracurricular activities.",
+    ],
+  },
+];
+
+function Experience() {
+  const targetRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+  });
+
+  const x = useTransform(scrollYProgress, [0, 1], ["1%", "-65%"]);
+
+  return (
+    <section id="experience" ref={targetRef} className="relative h-[300vh] bg-[#050505]">
+      <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
+        <div className="mx-auto w-full max-w-6xl px-6 mb-12">
+          <div className="flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-[#06B6D4]">
+            <span className="inline-block h-px w-12 bg-gradient-to-r from-[#06B6D4] to-transparent" />
+            02 — Experience
+          </div>
+          <h2 className="font-display mt-4 text-4xl leading-[1.1] text-white md:text-6xl drop-shadow-md">
+            Leadership across IEEE, NSS, and academic initiatives.
+          </h2>
+        </div>
+        
+        <motion.div style={{ x }} className="flex gap-8 px-6 md:px-20 pb-20">
+          {experiences.map((e, i) => (
+            <div
+              key={i}
+              className="relative w-[85vw] max-w-md shrink-0 flex flex-col group rounded-3xl border border-[#1F2937] bg-[#09090b]/80 backdrop-blur-sm p-8 shadow-[0_20px_40px_rgba(0,0,0,0.5)] transition-all hover:border-[#06B6D4] hover:shadow-[0_20px_40px_rgba(6,182,212,0.15)]"
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <span className="font-display text-2xl text-[#06B6D4] opacity-40">0{i + 1}</span>
+                <span className="rounded-full border border-[#06B6D4]/30 bg-[#06B6D4]/10 px-3 py-1 text-[11px] uppercase tracking-widest text-[#06B6D4]">
+                  {e.period}
+                </span>
+              </div>
+              <h3 className="font-display text-2xl leading-tight text-white mb-2">
+                {e.role}
+              </h3>
+              <div className="text-sm uppercase tracking-wider text-[#4C1D95] mb-6">{e.org}</div>
+              <ul className="space-y-3 text-[0.95rem] text-[#9CA3AF]">
+                {e.points.map((p, j) => (
+                  <li key={j} className="flex gap-3 leading-relaxed">
+                    <span className="mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-[#06B6D4]" />
+                    {p}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+// External Sections
+import { ProjectCards } from "./ui/ProjectCards";
+import { EducationSection } from "./ui/EducationSection";
+import { AchievementsSection } from "./ui/AchievementsSection";
+
+const skills = {
+  "Software & Tools": ["MS Excel", "PowerPoint", "Word", "Google Workspace", "MATLAB (Basic)"],
+  "Design & Branding": ["Canva", "Digital Branding", "Content Strategy"],
+  Engineering: ["Embedded Systems", "Digital Electronics", "VLSI Fundamentals"],
+  "Core Competencies": [
+    "Strategic Planning", "Team Leadership", "Operations Management",
+    "Stakeholder Management", "Process Optimization", "Communication & Coordination",
+  ],
+};
+
+function Skills() {
+  return (
+    <Section id="skills" label="05 — Skills" title="Tools, technical depth, and the way I lead.">
+      <div className="grid gap-12 md:grid-cols-2 mt-10">
+        {Object.entries(skills).map(([cat, items], i) => (
+          <motion.div
+            key={cat}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: i * 0.15, ease: EASE }}
+            className="relative p-8 md:p-10 rounded-3xl bg-gradient-to-b from-[#09090b] to-[#050505] border border-[#1F2937]/50 shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
+          >
+            <h3 className="text-sm font-semibold uppercase tracking-[0.25em] text-[#06B6D4] mb-8 flex items-center gap-4">
+              <span className="h-px flex-1 bg-gradient-to-r from-transparent to-[#06B6D4]/30" />
+              {cat}
+              <span className="h-px flex-1 bg-gradient-to-l from-transparent to-[#06B6D4]/30" />
+            </h3>
+            <div className="flex flex-wrap gap-3 md:gap-4 justify-center">
+              {items.map((s, j) => (
+                <motion.span
+                  key={s}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.15 + j * 0.05, type: "spring", stiffness: 200 }}
+                  whileHover={{ scale: 1.05, y: -4 }}
+                  className="rounded-full border border-[#4C1D95]/60 bg-[#0F0A1F]/50 px-5 py-2.5 text-sm md:text-base font-medium text-[#E5E7EB] transition-all hover:bg-[#06B6D4] hover:border-[#06B6D4] hover:text-[#050505] hover:shadow-[0_0_20px_rgba(6,182,212,0.6)] cursor-default backdrop-blur-sm"
+                >
+                  {s}
+                </motion.span>
+              ))}
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </Section>
+  );
+}
+function Contact() {
+  return (
+    <section id="contact" className="relative mx-auto max-w-6xl px-6 py-32 md:py-44 overflow-hidden">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-[radial-gradient(circle,rgba(76,29,149,0.3)_0%,rgba(5,5,5,0)_70%)] pointer-events-none" />
+      
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="relative z-10 rounded-3xl border border-[#1F2937] bg-[#09090b]/80 backdrop-blur-xl p-10 md:p-20 text-center shadow-[0_30px_60px_rgba(0,0,0,0.6)]"
+      >
+        <div className="flex items-center justify-center gap-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#06B6D4] mb-8">
+          <span className="inline-block h-px w-12 bg-gradient-to-r from-transparent to-[#06B6D4]" />
+          07 — Contact
+          <span className="inline-block h-px w-12 bg-gradient-to-l from-transparent to-[#06B6D4]" />
+        </div>
+        <h2 className="font-display text-5xl leading-tight text-white md:text-7xl text-balance mx-auto max-w-3xl">
+          Let's build <span className="italic text-[#06B6D4]">something</span> together.
+        </h2>
+        <p className="mt-6 mx-auto max-w-xl text-lg text-[#E5E7EB]/80">
+          Open to leadership roles, collaborations, MBA conversations, and engineering opportunities.
+          The fastest way to reach me is email.
+        </p>
+
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
+          <a
+            href="mailto:dhruvrupapara.ec@gmail.com"
+            className="group inline-flex items-center gap-3 rounded-full bg-[#06B6D4] px-8 py-4 font-semibold text-[#050505] transition-all hover:scale-105 hover:bg-[#E5E7EB] hover:shadow-[0_0_30px_rgba(6,182,212,0.6)]"
+          >
+            <Mail className="h-5 w-5" />
+            dhruvrupapara.ec@gmail.com
+            <ArrowUpRight className="h-5 w-5 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
+          </a>
+          <a
+            href="https://linkedin.com/in/dhruv-rupapara"
+            target="_blank" rel="noreferrer"
+            className="group inline-flex items-center gap-3 rounded-full border border-[#06B6D4] px-8 py-4 font-semibold text-[#06B6D4] transition-all hover:bg-[#06B6D4]/10 hover:shadow-[0_0_20px_rgba(6,182,212,0.3)]"
+          >
+            <Linkedin className="h-5 w-5" />
+            LinkedIn
+            <ArrowUpRight className="h-5 w-5 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
+          </a>
+        </div>
+      </motion.div>
+
+      <footer className="mt-32 flex flex-col justify-between gap-4 border-t border-[#1F2937] pt-8 text-sm font-medium text-[#4C1D95] md:flex-row text-center md:text-left">
+        <div>© {new Date().getFullYear()} Dhruv Rupapara. All rights reserved.</div>
+        <div>Petlad, Gujarat, India · +91 63539 33976</div>
+      </footer>
+    </section>
+  );
+}
+
+export default function Portfolio() {
+  return (
+    <main id="top" className="relative bg-[#050505] text-[#E5E7EB]">
+      <Navbar />
+      <HeroSection />
+      <ImageMarquee />
+      <About />
+      <Experience />
+      <ProjectCards />
+      <EducationSection />
+      <Skills />
+      <AchievementsSection />
+      <Contact />
+    </main>
+  );
+}
