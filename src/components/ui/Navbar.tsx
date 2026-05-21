@@ -29,9 +29,10 @@ export function Navbar() {
       )}>
         <a
           href="#top"
-          className="font-display text-xl text-white transition-transform hover:scale-105"
+          className="flex items-center gap-3 font-display text-xl text-white transition-transform hover:scale-105"
         >
-          Dhruv<span className="text-[#06B6D4]">.</span>
+          <img src="/hero-images/IMGS/DR-Logo.png" alt="Dhruv Logo" className="h-8 w-8 md:h-10 md:w-10 object-contain drop-shadow-[0_0_15px_rgba(6,182,212,0.6)]" />
+          <span>Dhruv<span className="text-[#06B6D4]">.</span></span>
         </a>
         
         <ul className="hidden items-center gap-8 text-sm font-medium text-[#9CA3AF] md:flex">
