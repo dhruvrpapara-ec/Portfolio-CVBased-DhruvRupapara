@@ -109,11 +109,6 @@ function EducationCard({ e, i, left }: { e: any, i: number, left: boolean }) {
               {e.school}
             </div>
             
-            <div className="pl-12">
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#06B6D4]/10 border border-[#06B6D4]/20 text-[#06B6D4] text-xs font-semibold uppercase tracking-wider shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] backdrop-blur-md">
-                {e.highlight}
-              </span>
-            </div>
           </div>
         </motion.div>
       </div>
