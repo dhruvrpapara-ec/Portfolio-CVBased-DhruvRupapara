@@ -23,7 +23,7 @@ const featuredAchievements = [
   {
     title: "Two-Year NSS Activity Report Publication",
     org: "NSS CHARUSAT",
-    desc: "Led design and publication of “सेवा, समर्पण, सफलता — The Chronicle of AY 2023–2025” magazine.",
+    desc: <>Led design and publication of <span className="font-regional text-2xl md:text-3xl font-normal text-[#06B6D4] tracking-wider px-1 align-baseline">“सेवा, समर्पण, सफलता”</span> — The Chronicle of AY 2023–2025 magazine.</>,
     link: "https://dhruvrupapara-magazin-nss-charusat.vercel.app/"
   }
 ];

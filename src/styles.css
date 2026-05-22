@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Waiting+for+the+Sunrise&family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Yatra+One&family=Waiting+for+the+Sunrise&family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
@@ -20,6 +20,7 @@ body {
   --font-display: "Outfit", ui-serif, Georgia, serif;
   --font-typewriter: "Waiting for the Sunrise", cursive;
   --font-cursive: "Great Vibes", cursive;
+  --font-regional: "Yatra One", serif;
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
