@@ -7,6 +7,12 @@ const NAMES = [
   "ધ્રુવ રૂપાપરા"  // Gujarati
 ];
 
+const FONTS = [
+  "font-typewriter", // English
+  "font-regional pt-8",   // Hindi (Yatra One)
+  "font-gujarati pt-8"    // Gujarati (Farsan)
+];
+
 export function TypewriterName() {
   const [index, setIndex] = useState(0);
   const [text, setText] = useState("");
@@ -36,7 +42,7 @@ export function TypewriterName() {
 
   return (
     <div className="relative inline-flex items-center">
-      <span className="font-typewriter text-[12vw] md:text-[6.5rem] leading-[0.92] tracking-tight text-white drop-shadow-[0_0_15px_rgba(6,182,212,0.5)]">
+      <span className={`${FONTS[index]} text-[12vw] md:text-[6.5rem] leading-[0.92] tracking-tight text-white drop-shadow-[0_0_15px_rgba(6,182,212,0.5)]`}>
         {text}
       </span>
       <motion.span
