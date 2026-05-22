@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform, type Variants } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
-import { ArrowUpRight, Mail, Phone } from "lucide-react";
+import { ArrowUpRight, Mail, Phone, Briefcase } from "lucide-react";
 import { HeroSection } from "./HeroSection";
 import { Navbar } from "./ui/Navbar";
 import { ImageMarquee } from "./ui/ImageMarquee";
@@ -243,26 +243,35 @@ function Experience() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: i * 0.1, duration: 0.5 }}
               key={i}
-              className="relative flex flex-col group rounded-3xl border border-[#1F2937] bg-[#09090b]/80 backdrop-blur-sm p-8 shadow-[0_20px_40px_rgba(0,0,0,0.5)] transition-all hover:border-[#06B6D4] hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(6,182,212,0.15)]"
+              className="relative flex flex-col group rounded-[2rem] border border-[#ffffff10] bg-[#0A0A0A] p-8 md:p-10 shadow-[0_20px_40px_rgba(0,0,0,0.5)] transition-all hover:border-[#06B6D4] hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(6,182,212,0.15)] overflow-hidden"
             >
-              <div className="flex items-center gap-3 mb-6">
-                <span className="font-display text-2xl text-[#06B6D4] opacity-40">0{i + 1}</span>
-                <span className="rounded-full border border-[#06B6D4]/30 bg-[#06B6D4]/10 px-3 py-1 text-[11px] uppercase tracking-widest text-[#06B6D4]">
-                  {e.period}
-                </span>
+              {/* Subtle Noise Texture */}
+              <div className="absolute inset-0 opacity-20 pointer-events-none mix-blend-overlay" style={{ backgroundImage: "url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E')" }} />
+              
+              <div className="relative z-10 flex flex-col h-full">
+                <div className="flex justify-between items-start mb-6">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#111] border border-[#ffffff10] shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] group-hover:scale-110 transition-transform duration-300">
+                    <Briefcase className="h-5 w-5 text-[#4C1D95]" />
+                  </div>
+                  <span className="rounded-full border border-[#06B6D4]/30 bg-[#06B6D4]/10 px-3 py-1 text-[11px] uppercase tracking-widest text-[#06B6D4]">
+                    {e.period}
+                  </span>
+                </div>
+                
+                <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#A78BFA] mb-2">{e.org}</div>
+                <h3 className="font-display text-2xl leading-tight text-white mb-6 tracking-tight">
+                  {e.role}
+                </h3>
+                
+                <ul className="space-y-3 text-[0.95rem] text-[#A1A1AA] mt-auto">
+                  {e.points.map((p, j) => (
+                    <li key={j} className="flex gap-3 leading-relaxed">
+                      <span className="mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-[#06B6D4]" />
+                      {p}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <h3 className="font-display text-2xl leading-tight text-white mb-2">
-                {e.role}
-              </h3>
-              <div className="text-sm uppercase tracking-wider text-[#4C1D95] mb-6">{e.org}</div>
-              <ul className="space-y-3 text-[0.95rem] text-[#9CA3AF]">
-                {e.points.map((p, j) => (
-                  <li key={j} className="flex gap-3 leading-relaxed">
-                    <span className="mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-[#06B6D4]" />
-                    {p}
-                  </li>
-                ))}
-              </ul>
             </motion.div>
           ))}
         </div>

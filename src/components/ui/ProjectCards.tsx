@@ -72,23 +72,28 @@ export function ProjectCards() {
                 duration: 0.4, 
                 ease: [0.19, 1, 0.22, 1] // Matches cubic-bezier from SCSS
               }}
-              className="relative flex flex-col h-[320px] w-[220px] md:h-[480px] md:w-[320px] -mx-8 md:-mx-12 cursor-pointer rounded-2xl border-[6px] border-[#6D34E8] bg-[#A482F6] shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden group"
+              className="relative flex flex-col h-[320px] w-[220px] md:h-[480px] md:w-[320px] -mx-8 md:-mx-12 cursor-pointer rounded-[2rem] border border-[#ffffff10] bg-[#0A0A0A] shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden group"
             >
+              {/* Subtle Noise Texture */}
+              <div className="absolute inset-0 opacity-20 pointer-events-none mix-blend-overlay z-0" style={{ backgroundImage: "url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E')" }} />
               {/* Card Face - Top Half (Image) */}
-              <div className="h-[55%] w-full bg-white relative">
+              <div className="h-[45%] w-full bg-[#111] relative z-10 border-b border-[#ffffff10]">
                 <img 
                   src={p.image} 
                   alt={p.title} 
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
                 />
               </div>
               
-              {/* Card Face - Bottom Half (Details styled like the screenshot) */}
-              <div className="h-[45%] w-full bg-[#A482F6] p-4 flex flex-col justify-center items-center text-center">
-                <h3 className="font-display text-white font-bold text-sm md:text-lg uppercase leading-tight mb-2 tracking-wide drop-shadow-md">
+              {/* Card Face - Bottom Half (Details styled like Section 6) */}
+              <div className="h-[55%] w-full bg-[#0A0A0A] p-5 md:p-6 flex flex-col justify-center items-start text-left relative z-10">
+                <div className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] text-[#06B6D4] mb-2">
+                  PROJECT
+                </div>
+                <h3 className="font-display text-white font-bold text-base md:text-xl leading-tight mb-2 tracking-wide drop-shadow-md">
                   {p.title}
                 </h3>
-                <p className="text-white text-[9px] md:text-xs font-semibold leading-relaxed tracking-wider drop-shadow-sm">
+                <p className="text-[#A1A1AA] text-[9px] md:text-xs font-medium leading-relaxed tracking-wide line-clamp-4 md:line-clamp-none">
                   {p.desc}
                 </p>
               </div>
