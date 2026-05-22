@@ -149,7 +149,7 @@ export function EducationSection() {
             className="font-display mt-4 text-4xl leading-[1.1] text-white md:text-6xl text-balance drop-shadow-md"
           >
             Years of Education.<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#06B6D4] via-[#4C1D95] to-[#10B981]">
+            <span className="font-cursive font-normal text-5xl md:text-8xl text-transparent bg-clip-text bg-gradient-to-r from-[#06B6D4] via-[#4C1D95] to-[#10B981] drop-shadow-md pl-4">
               A Lifetime of Vision.
             </span>
           </motion.h2>

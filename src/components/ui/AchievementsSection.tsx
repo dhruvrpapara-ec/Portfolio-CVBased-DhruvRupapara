@@ -121,7 +121,7 @@ export function AchievementsSection() {
             variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
             className="font-display mt-4 text-4xl leading-[1.1] text-white md:text-6xl text-balance drop-shadow-md"
           >
-            Achievements, <br className="hidden md:block" />Leadership & Impact.
+            Achievements, <br className="hidden md:block" />Leadership & <span className="font-cursive font-normal text-[#06B6D4] text-5xl md:text-8xl lowercase align-baseline pl-2">Impact.</span>
           </motion.h2>
           <motion.p 
             variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}

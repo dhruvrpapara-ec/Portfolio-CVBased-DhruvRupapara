@@ -45,7 +45,7 @@ export function HeroSection() {
               transition={{ duration: 1, delay: 0.4 }}
               className="font-display text-xl md:text-3xl font-medium tracking-wide text-[#E5E7EB] drop-shadow-md"
             >
-              Inspired to Serve. Determined to Lead.
+              Inspired to Serve. <br className="md:hidden" />Determined to <span className="font-cursive font-normal text-[#06B6D4] text-4xl md:text-6xl leading-[0.5]">Lead.</span>
             </motion.p>
           </motion.div>
         </div>
