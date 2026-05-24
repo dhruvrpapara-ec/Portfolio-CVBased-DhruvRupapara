@@ -5,10 +5,10 @@ import { MagneticHoverCard } from "./MagneticHoverCard";
 
 const education = [
   { degree: "B.Tech — Electronics & Communication Engineering", school: "Charotar University of Science and Technology (CHARUSAT)", loc: "Anand, Gujarat", years: "2023 – 2027", highlight: "CGPA: 8.42 | Chairperson, NSS & IEEE CASS" },
-  { degree: "Higher Secondary — Science Stream", school: "The Imperial Science School", loc: "Dhoraji, Gujarat", years: "2021 – 2023", highlight: "Focus on Physics, Mathematics, & Electronics" },
-  { degree: "Secondary Education", school: "The Imperial Science School", loc: "Dhoraji, Gujarat", years: "2019 – 2021", highlight: "Strong foundation in analytical problem solving" },
-  { degree: "Primary Education", school: "J.B. Diamonds & KARP Impex Vidya Sankul", loc: "Surat, Gujarat", years: "2014 – 2019", highlight: "Early development in science and leadership" },
-  { degree: "Primary Education", school: "Shree Kailash Vidhyalay", loc: "Rajkot, Gujarat", years: "2011 – 2014", highlight: "Initial academic and extracurricular growth" },
+  { degree: "Higher Secondary — Science Stream", school: "The Imperial Science School", loc: "Dhoraji, Gujarat", years: "2021 – 2023" },
+  { degree: "Secondary Education", school: "The Imperial Science School", loc: "Dhoraji, Gujarat", years: "2019 – 2021" },
+  { degree: "Primary Education", school: "J.B. Diamonds & KARP Impex Vidya Sankul", loc: "Surat, Gujarat", years: "2014 – 2019" },
+  { degree: "Primary Education", school: "Shree Kailash Vidhyalay", loc: "Rajkot, Gujarat", years: "2011 – 2014" },
 ];
 
 function EducationCard({ e, i, left }: { e: any, i: number, left: boolean }) {
@@ -67,9 +67,11 @@ function EducationCard({ e, i, left }: { e: any, i: number, left: boolean }) {
               {e.school}
             </div>
 
-            <div className="pl-12 mt-auto text-xs md:text-sm text-[#E5E7EB] font-medium opacity-80 uppercase tracking-widest border-l-2 border-[#06B6D4]/30">
-              <span className="pl-4 inline-block">{e.highlight}</span>
-            </div>
+            {e.highlight && (
+              <div className="pl-12 mt-auto text-xs md:text-sm text-[#E5E7EB] font-medium opacity-80 uppercase tracking-widest border-l-2 border-[#06B6D4]/30">
+                <span className="pl-4 inline-block">{e.highlight}</span>
+              </div>
+            )}
           </div>
         </MagneticHoverCard>
       </div>
