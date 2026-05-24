@@ -42,8 +42,14 @@ export function ProjectCards() {
           <span className="inline-block h-px w-12 bg-gradient-to-l from-transparent to-[#06B6D4]" />
         </div>
         <h2 className="font-display text-4xl md:text-6xl text-white drop-shadow-lg">
-          Engineering work that ships and <span className="font-cursive font-normal text-[#06B6D4] text-5xl md:text-8xl lowercase align-baseline pl-1">scales.</span>
+          Engineering Work.<br />
+          <span className="font-cursive font-normal text-5xl md:text-8xl text-transparent bg-clip-text bg-gradient-to-r from-[#06B6D4] via-[#4C1D95] to-[#10B981] drop-shadow-md pl-4">
+            That Ships & Scales.
+          </span>
         </h2>
+        <p className="mt-6 text-lg md:text-2xl text-[#A1A1AA] max-w-3xl font-medium mx-auto">
+          Building robust hardware and software solutions from the ground up.
+        </p>
       </div>
 
       {/* Hearthstone Card Fan Container */}

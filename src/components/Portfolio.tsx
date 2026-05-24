@@ -28,12 +28,16 @@ function Section({
   id,
   label,
   title,
+  cursive,
+  subtitle,
   children,
   className = "",
 }: {
   id: string;
   label: string;
   title: string;
+  cursive?: string;
+  subtitle?: string;
   children: React.ReactNode;
   className?: string;
 }) {
@@ -55,7 +59,23 @@ function Section({
           className="font-display mt-4 text-4xl leading-[1.1] text-white md:text-6xl text-balance drop-shadow-md"
         >
           {title}
+          {cursive && (
+            <>
+              <br />
+              <span className="font-cursive font-normal text-5xl md:text-8xl text-transparent bg-clip-text bg-gradient-to-r from-[#06B6D4] via-[#4C1D95] to-[#10B981] drop-shadow-md pl-4">
+                {cursive}
+              </span>
+            </>
+          )}
         </motion.h2>
+        {subtitle && (
+          <motion.p 
+            variants={fadeUp}
+            className="mt-6 text-lg md:text-2xl text-[#A1A1AA] max-w-3xl font-medium"
+          >
+            {subtitle}
+          </motion.p>
+        )}
       </motion.div>
       {children}
     </section>
@@ -132,8 +152,17 @@ function About() {
             variants={fadeUp}
             className="font-display mt-4 text-4xl leading-[1.1] text-white md:text-6xl text-balance drop-shadow-md"
           >
-            A motivated leader shaping strategy, teams, and <span className="font-cursive font-normal text-[#06B6D4] text-5xl md:text-8xl lowercase align-baseline pl-1">outcomes.</span>
+            A Motivated Leader.<br />
+            <span className="font-cursive font-normal text-5xl md:text-8xl text-transparent bg-clip-text bg-gradient-to-r from-[#06B6D4] via-[#4C1D95] to-[#10B981] drop-shadow-md pl-4">
+              Shaping Outcomes.
+            </span>
           </motion.h2>
+          <motion.p 
+            variants={fadeUp}
+            className="mt-6 text-lg md:text-2xl text-[#A1A1AA] max-w-3xl font-medium"
+          >
+            Driving strategy, inspiring teams, and building a legacy.
+          </motion.p>
         </motion.div>
         
         <div className="font-display text-lg md:text-2xl leading-relaxed md:leading-[1.8] text-white/90">
@@ -231,8 +260,17 @@ function Experience() {
             variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
             className="font-display mt-4 text-4xl leading-[1.1] text-white md:text-6xl text-balance drop-shadow-md"
           >
-            Leadership across IEEE, NSS, and academic <span className="font-cursive font-normal text-[#06B6D4] text-5xl md:text-8xl lowercase align-baseline pl-1">initiatives.</span>
+            Proven Track Record.<br />
+            <span className="font-cursive font-normal text-5xl md:text-8xl text-transparent bg-clip-text bg-gradient-to-r from-[#06B6D4] via-[#4C1D95] to-[#10B981] drop-shadow-md pl-4">
+              Leadership & Action.
+            </span>
           </motion.h2>
+          <motion.p 
+            variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
+            className="mt-6 text-lg md:text-2xl text-[#A1A1AA] max-w-3xl font-medium"
+          >
+            Impactful roles across IEEE, NSS, and academic initiatives.
+          </motion.p>
         </motion.div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
@@ -297,7 +335,13 @@ const skills = {
 
 function Skills() {
   return (
-    <Section id="skills" label="05 — Skills" title="Tools, technical depth, and the way I lead.">
+    <Section 
+      id="skills" 
+      label="05 — Skills" 
+      title="Technical Depth."
+      cursive="Tools & Capabilities."
+      subtitle="A comprehensive stack for hardware design and software development."
+    >
       <div className="grid gap-12 md:grid-cols-2 mt-10">
         {Object.entries(skills).map(([cat, items], i) => (
           <motion.div
