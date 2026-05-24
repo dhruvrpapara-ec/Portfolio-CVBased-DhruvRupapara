@@ -138,18 +138,19 @@ export function EducationSection() {
             hidden: { opacity: 0, y: 20 },
             show: { opacity: 1, y: 0, transition: { staggerChildren: 0.2 } },
           }}
-          className="mb-14 md:mb-20"
+          className="mb-14 md:mb-20 flex flex-col items-center text-center"
         >
-          <motion.div variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }} className="flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-[#06B6D4]">
-            <span className="inline-block h-px w-12 bg-gradient-to-r from-[#06B6D4] to-transparent" />
+          <motion.div variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }} className="flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-[#06B6D4] justify-center">
+            <span className="inline-block h-px w-12 bg-gradient-to-r from-transparent to-[#06B6D4]" />
             04 — Education
+            <span className="inline-block h-px w-12 bg-gradient-to-l from-transparent to-[#06B6D4]" />
           </motion.div>
           <motion.h2
             variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
             className="font-display mt-4 text-4xl leading-[1.1] text-white md:text-6xl text-balance drop-shadow-md"
           >
             Years of Education.<br />
-            <span className="font-cursive font-normal text-5xl md:text-8xl text-transparent bg-clip-text bg-gradient-to-r from-[#06B6D4] via-[#4C1D95] to-[#10B981] drop-shadow-md pl-4">
+            <span className="font-cursive font-normal text-5xl md:text-8xl text-transparent bg-clip-text bg-gradient-to-r from-[#06B6D4] via-[#4C1D95] to-[#10B981] drop-shadow-md">
               A Lifetime of Vision.
             </span>
           </motion.h2>

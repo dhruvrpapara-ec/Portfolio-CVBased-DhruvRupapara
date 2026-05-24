@@ -43,7 +43,7 @@ export function ProjectCards() {
         </div>
         <h2 className="font-display text-4xl md:text-6xl text-white drop-shadow-lg">
           Engineering Work.<br />
-          <span className="font-cursive font-normal text-5xl md:text-8xl text-transparent bg-clip-text bg-gradient-to-r from-[#06B6D4] via-[#4C1D95] to-[#10B981] drop-shadow-md pl-4">
+          <span className="font-cursive font-normal text-5xl md:text-8xl text-transparent bg-clip-text bg-gradient-to-r from-[#06B6D4] via-[#4C1D95] to-[#10B981] drop-shadow-md">
             That Ships & Scales.
           </span>
         </h2>

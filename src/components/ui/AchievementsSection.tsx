@@ -1,5 +1,6 @@
 import { useRef, useEffect } from "react";
 import { motion, useInView, useSpring, useTransform, useMotionTemplate, useMotionValue } from "framer-motion";
+import { MagneticHoverCard } from "./MagneticHoverCard";
 import { ArrowUpRight, Award, Calendar, Users, Target, BookOpen, Star } from "lucide-react";
 
 // --- Data ---
@@ -65,33 +66,6 @@ function Counter({ from = 0, to, duration = 2 }: { from?: number, to: number, du
   return <span ref={nodeRef} />;
 }
 
-function MagneticHoverCard({ children, className = "" }: { children: React.ReactNode, className?: string }) {
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  function handleMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent) {
-    const { left, top } = currentTarget.getBoundingClientRect();
-    mouseX.set(clientX - left);
-    mouseY.set(clientY - top);
-  }
-
-  return (
-    <motion.div
-      onMouseMove={handleMouseMove}
-      whileHover={{ y: -5, scale: 1.01 }}
-      className={`relative group rounded-[2rem] border border-[#ffffff10] bg-[#0A0A0A]/60 backdrop-blur-xl overflow-hidden ${className}`}
-    >
-      <div className="absolute inset-0 opacity-20 pointer-events-none mix-blend-overlay" style={{ backgroundImage: "url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E')" }} />
-      <motion.div
-        className="pointer-events-none absolute -inset-px rounded-[2rem] opacity-0 transition duration-300 group-hover:opacity-100"
-        style={{
-          background: useMotionTemplate`radial-gradient(400px circle at ${mouseX}px ${mouseY}px, rgba(167, 139, 250, 0.15), transparent 80%)`,
-        }}
-      />
-      <div className="relative z-10 h-full w-full">{children}</div>
-    </motion.div>
-  );
-}
 
 export function AchievementsSection() {
   return (
@@ -111,23 +85,27 @@ export function AchievementsSection() {
             hidden: { opacity: 0, y: 20 },
             show: { opacity: 1, y: 0, transition: { staggerChildren: 0.2 } },
           }}
-          className="mb-14 md:mb-20"
+          className="mb-14 md:mb-20 flex flex-col items-center text-center"
         >
-          <motion.div variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }} className="flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-[#06B6D4]">
-            <span className="inline-block h-px w-12 bg-gradient-to-r from-[#06B6D4] to-transparent" />
+          <motion.div variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }} className="flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-[#06B6D4] justify-center">
+            <span className="inline-block h-px w-12 bg-gradient-to-r from-transparent to-[#06B6D4]" />
             06 — Beyond the Resume
+            <span className="inline-block h-px w-12 bg-gradient-to-l from-transparent to-[#06B6D4]" />
           </motion.div>
           <motion.h2
             variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
             className="font-display mt-4 text-4xl leading-[1.1] text-white md:text-6xl text-balance drop-shadow-md"
           >
-            Achievements, <br className="hidden md:block" />Leadership & <span className="font-cursive font-normal text-[#06B6D4] text-5xl md:text-8xl lowercase align-baseline pl-2">Impact.</span>
+            Achievements.<br />
+            <span className="font-cursive font-normal text-5xl md:text-8xl text-transparent bg-clip-text bg-gradient-to-r from-[#06B6D4] via-[#4C1D95] to-[#10B981] drop-shadow-md">
+              Leadership & Impact.
+            </span>
           </motion.h2>
           <motion.p 
             variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
-            className="mt-6 text-lg md:text-xl text-[#A1A1AA] max-w-2xl font-medium"
+            className="mt-6 text-lg md:text-2xl text-[#A1A1AA] max-w-3xl font-medium"
           >
-            Beyond academics — a journey of leadership, service, innovation, and massive community impact.
+            Milestones of excellence and community contribution.
           </motion.p>
         </motion.div>
 
