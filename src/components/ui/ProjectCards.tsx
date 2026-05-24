@@ -42,7 +42,7 @@ export function ProjectCards() {
           <span className="inline-block h-px w-12 bg-gradient-to-l from-transparent to-[#06B6D4]" />
         </div>
         <h2 className="font-display text-4xl md:text-6xl text-white drop-shadow-lg">
-          Engineering work that ships and scales.
+          Engineering work that ships and <span className="font-cursive font-normal text-[#06B6D4] text-5xl md:text-8xl lowercase align-baseline pl-1">scales.</span>
         </h2>
       </div>
 

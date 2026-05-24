@@ -132,7 +132,7 @@ function About() {
             variants={fadeUp}
             className="font-display mt-4 text-4xl leading-[1.1] text-white md:text-6xl text-balance drop-shadow-md"
           >
-            A motivated leader shaping strategy, teams, and outcomes.
+            A motivated leader shaping strategy, teams, and <span className="font-cursive font-normal text-[#06B6D4] text-5xl md:text-8xl lowercase align-baseline pl-1">outcomes.</span>
           </motion.h2>
         </motion.div>
         
@@ -231,7 +231,7 @@ function Experience() {
             variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
             className="font-display mt-4 text-4xl leading-[1.1] text-white md:text-6xl text-balance drop-shadow-md"
           >
-            Leadership across IEEE, NSS, and academic initiatives.
+            Leadership across IEEE, NSS, and academic <span className="font-cursive font-normal text-[#06B6D4] text-5xl md:text-8xl lowercase align-baseline pl-1">initiatives.</span>
           </motion.h2>
         </motion.div>
         
