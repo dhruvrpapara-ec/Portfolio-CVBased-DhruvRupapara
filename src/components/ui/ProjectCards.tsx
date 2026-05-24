@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
+import { MagneticHoverCard } from "./MagneticHoverCard";
 
 const projectsData = [
   {
@@ -52,67 +54,60 @@ export function ProjectCards() {
         </p>
       </div>
 
-      {/* Hearthstone Card Fan Container */}
-      <div className="relative mt-20 flex h-[400px] md:h-[600px] w-full justify-center items-end pb-12 px-12 perspective-[1000px]">
-        {projectsData.map((p, i) => {
-          // Hearthstone SCSS math translated to React
-          const rotation = ((i - (total - 1) / 2) / (total - 2)) * rotationRange;
-          const offset = Math.abs(((i - (total - 1) / 2) / (total - 2)) * offsetRange);
+      {/* Cinematic Bento Grid */}
+      <div className="mx-auto w-full max-w-7xl px-6 relative z-10 mt-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {projectsData.map((p, i) => {
+            // First item takes up 2 columns on desktop
+            const isFeatured = i === 0;
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className={isFeatured ? "md:col-span-2 lg:col-span-2" : "col-span-1"}
+              >
+                <MagneticHoverCard className="h-[400px] md:h-[450px] w-full flex flex-col justify-end p-0">
+                  {/* Background Image that zooms on hover */}
+                  <div className="absolute inset-0 z-0 overflow-hidden rounded-[2rem]">
+                    <img 
+                      src={p.image} 
+                      alt={p.title} 
+                      className="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
+                    />
+                  </div>
 
-          return (
-            <motion.div
-              key={i}
-              initial={{ 
-                y: offset, 
-                rotateZ: rotation, 
-                scale: 1,
-                zIndex: 10 + i 
-              }}
-              whileHover={{ 
-                y: -150, 
-                rotateZ: 0, 
-                scale: 1.2, // Slightly reduced scale so the text fits comfortably on screen
-                zIndex: 50 
-              }}
-              transition={{ 
-                duration: 0.4, 
-                ease: [0.19, 1, 0.22, 1] // Matches cubic-bezier from SCSS
-              }}
-              className="relative flex flex-col h-[320px] w-[220px] md:h-[480px] md:w-[320px] -mx-8 md:-mx-12 cursor-pointer rounded-[2rem] border border-[#ffffff10] bg-[#0A0A0A] shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden group"
-            >
-              {/* Subtle Noise Texture */}
-              <div className="absolute inset-0 opacity-20 pointer-events-none mix-blend-overlay z-0" style={{ backgroundImage: "url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E')" }} />
-              {/* Card Face - Top Half (Image) */}
-              <div className="h-[45%] w-full bg-[#111] relative z-10 border-b border-[#ffffff10]">
-                <img 
-                  src={p.image} 
-                  alt={p.title} 
-                  className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
-                />
-              </div>
-              
-              {/* Card Face - Bottom Half (Details styled like Section 6) */}
-              <div className="h-[55%] w-full bg-[#0A0A0A] p-5 md:p-6 flex flex-col justify-center items-start text-left relative z-10">
-                <div className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] text-[#06B6D4] mb-2">
-                  PROJECT
-                </div>
-                <h3 className="font-display text-white font-bold text-base md:text-xl leading-tight mb-2 tracking-wide drop-shadow-md">
-                  {p.title}
-                </h3>
-                <p className="text-[#A1A1AA] text-[9px] md:text-xs font-medium leading-relaxed tracking-wide line-clamp-4 md:line-clamp-none">
-                  {p.desc}
-                </p>
-              </div>
-              
-              {/* Overlay Flash on Hover (like SCSS :after fade) */}
-              <motion.div 
-                initial={{ opacity: 0 }}
-                whileHover={{ opacity: [0.5, 0], transition: { duration: 0.3 } }}
-                className="absolute inset-0 bg-white pointer-events-none mix-blend-overlay"
-              />
-            </motion.div>
-          );
-        })}
+                  {/* Dark Gradient Overlay for text readability */}
+                  <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#050505] via-[#050505]/80 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500" />
+
+                  {/* Content Overlay */}
+                  <div className="relative z-20 p-8 md:p-10 flex flex-col h-full justify-end transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                    <div className="flex justify-between items-end gap-6">
+                      <div className="flex-1">
+                        <div className="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-[#06B6D4] mb-3">
+                          PROJECT
+                        </div>
+                        <h3 className="font-display text-white font-bold text-2xl md:text-4xl leading-tight mb-3 drop-shadow-md">
+                          {p.title}
+                        </h3>
+                        <p className={`text-[#A1A1AA] text-xs md:text-sm font-medium leading-relaxed tracking-wide ${isFeatured ? 'max-w-xl' : 'line-clamp-3'}`}>
+                          {p.desc}
+                        </p>
+                      </div>
+                      
+                      {/* Arrow Icon */}
+                      <div className="hidden sm:flex flex-none items-center justify-center w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white group-hover:bg-white group-hover:text-black transition-all duration-500 shadow-xl opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0">
+                        <ArrowUpRight className="w-5 h-5 group-hover:rotate-45 transition-transform duration-500" />
+                      </div>
+                    </div>
+                  </div>
+                </MagneticHoverCard>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
