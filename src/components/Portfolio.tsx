@@ -318,12 +318,14 @@ import { EducationSection } from "./ui/EducationSection";
 import { AchievementsSection } from "./ui/AchievementsSection";
 
 const skills = {
-  "Software & Tools": ["MS Excel", "PowerPoint", "Word", "Google Workspace", "MATLAB (Basic)"],
-  "Design & Branding": ["Canva", "Digital Branding", "Content Strategy"],
-  Engineering: ["Embedded Systems", "Digital Electronics", "VLSI Fundamentals"],
+  "Software & Tools": [
+    "Microsoft Excel", "Microsoft Word", "Microsoft PowerPoint",
+    "Cadence Virtuoso", "MATLAB (Basic Knowledge)", "Canva (Professional Use)"
+  ],
   "Core Competencies": [
     "Strategic Planning", "Team Leadership", "Operations Management",
     "Stakeholder Management", "Process Optimization", "Communication & Coordination",
+    "Documentation Management"
   ],
 };
 
