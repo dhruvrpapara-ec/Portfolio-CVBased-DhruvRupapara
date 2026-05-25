@@ -442,7 +442,7 @@ function Contact() {
 
       <footer className="mt-32 flex flex-col justify-between gap-4 border-t border-[#1F2937] pt-8 text-sm font-medium text-[#4C1D95] md:flex-row text-center md:text-left">
         <div>© {new Date().getFullYear()} Dhruv Rupapara. All rights reserved.</div>
-        <div>Petlad, Gujarat, India · +91 63539 33976</div>
+        <div>Rajkot, Gujarat, India · +91 63539 33976</div>
       </footer>
     </section>
   );
