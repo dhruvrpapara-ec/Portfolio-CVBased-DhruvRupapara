@@ -108,33 +108,6 @@ export function AchievementsSection() {
             Milestones of excellence and community contribution.
           </motion.p>
         </motion.div>
-
-        {/* Impact Statistics Counters */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-24"
-        >
-          <div className="p-6 md:p-8 rounded-3xl border border-[#ffffff10] bg-gradient-to-br from-[#111] to-[#0A0A0A] text-center shadow-2xl">
-            <div className="font-display text-4xl md:text-5xl font-bold text-white mb-2"><Counter to={500} />+</div>
-            <div className="text-xs md:text-sm font-semibold uppercase tracking-wider text-[#A78BFA]">Volunteers Led</div>
-          </div>
-          <div className="p-6 md:p-8 rounded-3xl border border-[#ffffff10] bg-gradient-to-br from-[#111] to-[#0A0A0A] text-center shadow-2xl">
-            <div className="font-display text-4xl md:text-5xl font-bold text-white mb-2"><Counter to={50} />+</div>
-            <div className="text-xs md:text-sm font-semibold uppercase tracking-wider text-[#06B6D4]">Events Managed</div>
-          </div>
-          <div className="p-6 md:p-8 rounded-3xl border border-[#ffffff10] bg-gradient-to-br from-[#111] to-[#0A0A0A] text-center shadow-2xl">
-            <div className="font-display text-4xl md:text-5xl font-bold text-white mb-2"><Counter to={50} />+</div>
-            <div className="text-xs md:text-sm font-semibold uppercase tracking-wider text-[#10B981]">IEEE Members</div>
-          </div>
-          <div className="p-6 md:p-8 rounded-3xl border border-[#ffffff10] bg-gradient-to-br from-[#111] to-[#0A0A0A] text-center shadow-2xl">
-            <div className="font-display text-4xl md:text-5xl font-bold text-white mb-2"><Counter to={450} />+</div>
-            <div className="text-xs md:text-sm font-semibold uppercase tracking-wider text-[#E11D48]">Students Taught</div>
-          </div>
-        </motion.div>
-
         {/* Bento Grid layout */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-min">
           

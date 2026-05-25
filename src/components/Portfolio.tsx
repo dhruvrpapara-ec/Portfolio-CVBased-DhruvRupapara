@@ -193,7 +193,7 @@ const experiences = [
     ],
   },
   {
-    period: "May 2025 – Present",
+    period: "May 2025 – June 2026",
     role: "Founding Chairperson – IEEE CASS Student Branch Chapter",
     org: "CHARUSAT",
     points: [
@@ -213,16 +213,7 @@ const experiences = [
     ],
   },
   {
-    period: "Present",
-    role: "Portal Administrator – NSS Connect",
-    org: "CHARUSAT",
-    points: [
-      "Developed and managed a centralized digital portal for volunteer management and reporting.",
-      "Streamlined workflows including approvals, attendance tracking, reporting, and operational monitoring.",
-    ],
-  },
-  {
-    period: "2024 – Present",
+    period: "2024 – June 2026",
     role: "Content & Social Media Lead – EC Department, CSPIT",
     org: "CHARUSAT",
     points: [
@@ -253,18 +244,19 @@ function Experience() {
             hidden: { opacity: 0, y: 20 },
             show: { opacity: 1, y: 0, transition: { staggerChildren: 0.2 } },
           }}
-          className="mb-14 md:mb-20"
+          className="mb-14 md:mb-20 flex flex-col items-center text-center"
         >
-          <motion.div variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }} className="flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-[#06B6D4]">
-            <span className="inline-block h-px w-12 bg-gradient-to-r from-[#06B6D4] to-transparent" />
+          <motion.div variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }} className="flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-[#06B6D4] justify-center">
+            <span className="inline-block h-px w-12 bg-gradient-to-r from-transparent to-[#06B6D4]" />
             02 — Experience
+            <span className="inline-block h-px w-12 bg-gradient-to-l from-transparent to-[#06B6D4]" />
           </motion.div>
           <motion.h2
             variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
             className="font-display mt-4 text-4xl leading-[1.1] text-white md:text-6xl text-balance drop-shadow-md"
           >
             Proven Track Record.<br />
-            <span className="font-cursive font-normal text-5xl md:text-8xl text-transparent bg-clip-text bg-gradient-to-r from-[#06B6D4] via-[#4C1D95] to-[#10B981] drop-shadow-md pl-4">
+            <span className="font-cursive font-normal text-5xl md:text-8xl text-transparent bg-clip-text bg-gradient-to-r from-[#06B6D4] via-[#4C1D95] to-[#10B981] drop-shadow-md">
               Leadership & Action.
             </span>
           </motion.h2>
@@ -405,50 +397,45 @@ function Contact() {
           The fastest way to reach me is email.
         </p>
 
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-6">
           <a
             href="mailto:dhruvrupapara.ec@gmail.com"
-            className="group inline-flex items-center gap-3 rounded-full bg-[#06B6D4] px-8 py-4 font-semibold text-[#050505] transition-all hover:scale-105 hover:bg-[#E5E7EB] hover:shadow-[0_0_30px_rgba(6,182,212,0.6)]"
+            title="Email"
+            className="group inline-flex items-center justify-center rounded-full bg-[#06B6D4] p-5 font-semibold text-[#050505] transition-all hover:scale-110 hover:bg-[#E5E7EB] hover:shadow-[0_0_30px_rgba(6,182,212,0.6)]"
           >
-            <Mail className="h-5 w-5" />
-            dhruvrupapara.ec@gmail.com
-            <ArrowUpRight className="h-5 w-5 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
+            <Mail className="h-6 w-6" />
           </a>
           <a
             href="https://linkedin.com/in/dhruv-rupapara"
             target="_blank" rel="noreferrer"
-            className="group inline-flex items-center gap-3 rounded-full border border-[#06B6D4] px-6 py-4 font-semibold text-[#06B6D4] transition-all hover:bg-[#06B6D4]/10 hover:shadow-[0_0_20px_rgba(6,182,212,0.3)]"
+            title="LinkedIn"
+            className="group inline-flex items-center justify-center rounded-full border border-[#06B6D4] p-5 font-semibold text-[#06B6D4] transition-all hover:scale-110 hover:bg-[#06B6D4]/10 hover:shadow-[0_0_20px_rgba(6,182,212,0.3)]"
           >
-            <Linkedin className="h-5 w-5" />
-            LinkedIn
-            <ArrowUpRight className="h-5 w-5 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
+            <Linkedin className="h-6 w-6" />
           </a>
           <a
             href="https://www.instagram.com/dhrv.20_"
             target="_blank" rel="noreferrer"
-            className="group inline-flex items-center gap-3 rounded-full border border-[#E1306C] px-6 py-4 font-semibold text-[#E1306C] transition-all hover:bg-[#E1306C]/10 hover:shadow-[0_0_20px_rgba(225,48,108,0.3)]"
+            title="Instagram"
+            className="group inline-flex items-center justify-center rounded-full border border-[#E1306C] p-5 font-semibold text-[#E1306C] transition-all hover:scale-110 hover:bg-[#E1306C]/10 hover:shadow-[0_0_20px_rgba(225,48,108,0.3)]"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-            Instagram
-            <ArrowUpRight className="h-5 w-5 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
           </a>
           <a
             href="https://www.snapchat.com/add/xlx_dhrvzzbliss?share_id=dxKho6mEyFQ&locale=en-US"
             target="_blank" rel="noreferrer"
-            className="group inline-flex items-center gap-3 rounded-full border border-[#FFFC00] px-6 py-4 font-semibold text-[#FFFC00] transition-all hover:bg-[#FFFC00]/10 hover:shadow-[0_0_20px_rgba(255,252,0,0.3)]"
+            title="Snapchat"
+            className="group inline-flex items-center justify-center rounded-full border border-[#FFFC00] p-5 font-semibold text-[#FFFC00] transition-all hover:scale-110 hover:bg-[#FFFC00]/10 hover:shadow-[0_0_20px_rgba(255,252,0,0.3)]"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 10h.01"/><path d="M15 10h.01"/><path d="M12 2a8 8 0 0 0-8 8v12l3-3 2.5 2.5L12 19l2.5 2.5L17 19l3 3V10a8 8 0 0 0-8-8z"/></svg>
-            Snapchat
-            <ArrowUpRight className="h-5 w-5 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 10h.01"/><path d="M15 10h.01"/><path d="M12 2a8 8 0 0 0-8 8v12l3-3 2.5 2.5L12 19l2.5 2.5L17 19l3 3V10a8 8 0 0 0-8-8z"/></svg>
           </a>
           <a
             href="https://www.facebook.com/rupapara.dhruv.50?mibextid=ZbWKwL"
             target="_blank" rel="noreferrer"
-            className="group inline-flex items-center gap-3 rounded-full border border-[#1877F2] px-6 py-4 font-semibold text-[#1877F2] transition-all hover:bg-[#1877F2]/10 hover:shadow-[0_0_20px_rgba(24,119,242,0.3)]"
+            title="Facebook"
+            className="group inline-flex items-center justify-center rounded-full border border-[#1877F2] p-5 font-semibold text-[#1877F2] transition-all hover:scale-110 hover:bg-[#1877F2]/10 hover:shadow-[0_0_20px_rgba(24,119,242,0.3)]"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-            Facebook
-            <ArrowUpRight className="h-5 w-5 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
           </a>
         </div>
       </motion.div>

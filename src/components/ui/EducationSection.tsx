@@ -4,7 +4,7 @@ import { GraduationCap } from "lucide-react";
 import { MagneticHoverCard } from "./MagneticHoverCard";
 
 const education = [
-  { degree: "B.Tech — Electronics & Communication Engineering", school: "Charotar University of Science and Technology (CHARUSAT)", loc: "Anand, Gujarat", years: "2023 – 2027", highlight: "CGPA: 8.42 | Chairperson, NSS & IEEE CASS" },
+  { degree: "B.Tech — Electronics & Communication Engineering", school: "Charotar University of Science and Technology (CHARUSAT)", loc: "Anand, Gujarat", years: "2023 – 2027" },
   { degree: "Higher Secondary — Science Stream", school: "The Imperial Science School", loc: "Dhoraji, Gujarat", years: "2021 – 2023" },
   { degree: "Secondary Education", school: "The Imperial Science School", loc: "Dhoraji, Gujarat", years: "2019 – 2021" },
   { degree: "Primary Education", school: "J.B. Diamonds & KARP Impex Vidya Sankul", loc: "Surat, Gujarat", years: "2014 – 2019" },
