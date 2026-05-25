@@ -208,12 +208,12 @@ export function AchievementsSection() {
 
         {/* Certifications (Horizontal Scrolling Chips) */}
         <div className="mt-24">
-          <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-[#10B981] mb-8 flex items-center gap-4">
+          <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-[#10B981] mb-8 flex items-center justify-center gap-4">
             <span className="h-px w-12 bg-gradient-to-r from-transparent to-[#10B981]/50" />
             Certifications
             <span className="h-px w-12 bg-gradient-to-l from-transparent to-[#10B981]/50" />
           </h3>
-          <div className="flex overflow-x-auto pb-8 -mx-6 px-6 scrollbar-hide gap-4 w-full">
+          <div className="flex overflow-x-auto pb-8 -mx-6 px-6 scrollbar-hide gap-4 w-full justify-center">
             {certs.map((c, i) => (
               <motion.div
                 key={i}
@@ -232,7 +232,7 @@ export function AchievementsSection() {
 
         {/* Sessions Conducted */}
         <div className="mt-16">
-          <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-[#06B6D4] mb-8 flex items-center gap-4">
+          <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-[#06B6D4] mb-8 flex items-center justify-center gap-4">
             <span className="h-px w-12 bg-gradient-to-r from-transparent to-[#06B6D4]/50" />
             Sessions Conducted
             <span className="h-px w-12 bg-gradient-to-l from-transparent to-[#06B6D4]/50" />
